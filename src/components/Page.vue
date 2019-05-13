@@ -14,7 +14,20 @@ export default {
         this.resolveDoc()
         window.scrollTo(0,0)
     },
+    updated(){  
+        this.scrollToRencentHash()  
+    },
     methods: {
+      scrollToRencentHash() {
+        let hash = decodeURIComponent(window.location.hash).split('#')[1]
+        console.log(hash)
+        document.getElementById(hash).scrollIntoView(
+          {
+            behavior: "smooth",
+            block:    "center",
+          }
+        )       
+      },
       resolveDoc() {
           let recentUrl = '/repos/cxd/console3.0/docs/index'
           if(this.$route.params.id){
@@ -38,8 +51,8 @@ export default {
   background-color #fff
   height 100%
   .page
-    width 800px
-    margin 40px auto 120px
+    width 700px
+    margin 0px 0 120px 100px
     background-color #fff
     min-height 100%
 </style>
