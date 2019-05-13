@@ -6,7 +6,7 @@ export function pageFilter(page) {
     filteredPage  = page.replace(reg,'')
     // 重新创建链接地址
     let reg1 = new RegExp('(<h[1-9] id=")[a-z0-9]*(">)(.*?)(</h[1-9]>)','g')
-    filteredPage  = page.replace(reg1,"$1$3$2$3<a href='"+'#'+"$3"+"'>#</a>$4")
+    filteredPage  = filteredPage.replace(reg1,"$1$3$2$3<a href='"+'#'+"$3"+"'>#</a>$4")
     return filteredPage
 }
 
@@ -14,7 +14,10 @@ export function resolveYaml(data) {
     let resolvedData = []
     const dataToArray = data.split(/\s-/)
     const path = window.location.href
-    const lastPath = path.split('/')[path.split('/').length-1]
+    let lastPath = path.split('/')[path.split('/').length-1]
+    if (lastPath.indexOf('#')>-1) {
+        lastPath = lastPath.split('#')[0]
+    }
     for (let i = 1; i < dataToArray.length; i++){
         const item = dataToArray[i]
         const level = item.match(/level:\s([0-9])/)[1] // 获得等级
