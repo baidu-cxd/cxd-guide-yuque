@@ -5,12 +5,14 @@
 </template>
 
 <script>
+import {pageFilter} from '@/util.js'
 export default {
     data(){
         return {page:' '}
     },
     mounted(){
         this.resolveDoc()
+        window.scrollTo(0,0)
     },
     methods: {
       resolveDoc() {
@@ -21,10 +23,10 @@ export default {
           this.$axios
             .get(recentUrl)
             .then(res=>{
-              console.log(res.data.data.body_html)
-              this.page = res.data.data.body_html
+              const resolvedPage = pageFilter(res.data.data.body_html)
+              this.page = resolvedPage
             }) 
-      },  
+      }, 
     }
 }
 </script>

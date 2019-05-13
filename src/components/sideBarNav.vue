@@ -73,9 +73,9 @@
     position absolute
     top 0
     left 0
-    width 100%
+    width 240px
     height 60px
-    // background-color #000
+    background-color #f5f5f5
     a
       padding 0
       margin 0
@@ -151,7 +151,19 @@
 
 <script>
 export default {
+    updated(){  
+        this.scrollToRencentLink()  
+    },
     methods: {
+        scrollToRencentLink(){
+            document.getElementsByClassName('router-link-active')[0].scrollIntoView(
+                {
+                    behavior: "smooth",
+                    block:    "center",
+                }
+            )
+
+        },
         shouldShow(isPublish) {
             if(this.$route.path.indexOf('test/docs')>-1){
                 return true
