@@ -3,6 +3,7 @@
       <div class="logo">
           <router-link to="/docs/index">
               <img src="http://baiduyun-guideline.bj.bcebos.com/public/cxd%C2%B7guide.svg" alt="">
+              <div class="name">B端产品规范</div>
           </router-link>
       </div>
       <div class="scroll-content">
@@ -87,6 +88,17 @@
     img 
       height 20px
       margin 24px 18px
+    .name
+      position absolute
+      top 22px
+      right 8px
+      padding 4px 8px
+      background-color #333
+      color 000
+      line-height 16px
+      color #ccc
+      font-size 12px
+      border-radius 4px
   .scroll-content
     position absolute
     top 0

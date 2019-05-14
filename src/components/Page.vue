@@ -50,7 +50,7 @@ export default {
             const myObj = document.getElementById(item.name)
             const top = myObj.getBoundingClientRect().top //元素顶端到可见区域顶端的距离
             const se = document.documentElement.clientHeight //浏览器可见区域高度。
-            if(0 <= top <= 10) {
+            if(0 <= top && top<= 10) {
               console.log(item.name,'进来了',top)
             }
           }

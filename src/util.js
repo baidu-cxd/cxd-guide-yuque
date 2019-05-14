@@ -9,8 +9,8 @@ export function pageFilter(page) {
         html = "<h1>" + H1 + "</h1>" + html
     }
     // 取消图片宽限制
-    const reg =  new RegExp("width:.[0-9]+\.[0-9]+px\;",'g')
-    filteredPage  = html.replace(reg,'')
+    const reg =  new RegExp("max-width:.[0-9]+\.[0-9]+px\;",'g')
+    filteredPage  = html.replace(reg,'max-width:800px;')
     // 重新创建链接地址
     const reg1 = new RegExp('(<h[2-9] id=")[a-z0-9A-Z]*(">)(.*?)(</h[2-9]>)','g')
     filteredPage  = filteredPage.replace(reg1,"$1$3$2$3<a href='"+'#'+"$3"+"'>#</a>$4")
