@@ -150,9 +150,17 @@
 </style>
 
 <script>
+import { setTimeout } from 'timers';
 export default {
+    data(){return {
+      times : 0
+    }},
     updated(){  
-        this.scrollToRencentLink()  
+      if(this.times === 0){
+        this.scrollToRencentLink()
+        this.times = 1
+      }
+      // setTimeout(()=>{this.scrollToRencentLink()},1000)
     },
     methods: {
         scrollToRencentLink(){

@@ -8,15 +8,17 @@
 import {resolveYaml} from '@/util.js'
 export default {
   mounted() {
-      const url = '/repos/cxd/console3.0'
+      const url = '/repos/cxd/tob'
       this.$axios
         .get(url)
         .then(res=>{
-          this.$store.state.toc = resolveYaml(res.data.data.toc_yml)
+          const resolve = resolveYaml(res.data.data.toc_yml)
+          this.$store.state.toc = resolve.resolvedData
+          this.$store.state.navFlat = resolve.flatData
       }) 
       if (this.$route.path === '/'){
-        this.$router.push("/docs")
-      }
+        this.$router.push("/docs/index")
+      } 
   }
 }
 </script>
