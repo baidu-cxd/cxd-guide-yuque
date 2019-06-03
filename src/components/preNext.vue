@@ -15,7 +15,7 @@
 
 <style lang="stylus">
 .pre-next
-  width 700px
+  width 800px
   margin 0px 0 80px 120px
   background-color #fff
   overflow hidden
